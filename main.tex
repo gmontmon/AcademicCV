@@ -5,7 +5,6 @@
 %
 % REQUIRED CSV FILES:
 %
-% csv_output/
 % ├── Personal_Info.csv
 % ├── Education.csv
 % ├── Experience.csv
@@ -61,7 +60,7 @@
 {\Huge \textbf{
 \csvreader[
 head to column names
-]{csv_output/Personal_Info.csv}{}{
+]{Personal_Info.csv}{}{
 \ifthenelse{\equal{\Field}{Full_Name}}
 {\Value}
 {}
@@ -73,7 +72,7 @@ head to column names
 {\large
 \csvreader[
 head to column names
-]{csv_output/Personal_Info.csv}{}{
+]{Personal_Info.csv}{}{
 \ifthenelse{\equal{\Field}{Designation}}
 {\Value}
 {}
@@ -84,7 +83,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Personal_Info.csv}{}{
+]{Personal_Info.csv}{}{
 \ifthenelse{\equal{\Field}{Department}}
 {\Value}
 {}
@@ -92,7 +91,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Personal_Info.csv}{}{
+]{Personal_Info.csv}{}{
 \ifthenelse{\equal{\Field}{Institution}}
 {\Value}
 {}
@@ -103,7 +102,7 @@ head to column names
 Email:
 \csvreader[
 head to column names
-]{csv_output/Personal_Info.csv}{}{
+]{Personal_Info.csv}{}{
 \ifthenelse{\equal{\Field}{Email}}
 {\Value}
 {}
@@ -114,7 +113,7 @@ head to column names
 Phone:
 \csvreader[
 head to column names
-]{csv_output/Personal_Info.csv}{}{
+]{Personal_Info.csv}{}{
 \ifthenelse{\equal{\Field}{Phone}}
 {\Value}
 {}
@@ -132,7 +131,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Personal_Info.csv}{}{
+]{Personal_Info.csv}{}{
 \ifthenelse{\equal{\Field}{Research_Areas}}
 {\Value}
 {}
@@ -148,7 +147,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Education.csv}{}{
+]{Education.csv}{}{
 \item
 \textbf{\Degree}
 in \Specialization
@@ -170,7 +169,7 @@ in \Specialization
 
 \csvreader[
 head to column names
-]{csv_output/Experience.csv}{}{
+]{Experience.csv}{}{
 \item
 \textbf{\Position}
 
@@ -191,7 +190,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Journal_Publications.csv}{}{
+]{Journal_Publications.csv}{}{
 \item
 \Authors\ (\Year).
 
@@ -216,7 +215,7 @@ pp. \Pages
 
 \csvreader[
 head to column names
-]{csv_output/Conference_Publications.csv}{}{
+]{Conference_Publications.csv}{}{
 \item
 \Authors\ (\Year).
 
@@ -239,7 +238,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Sponsored_Projects.csv}{}{
+]{Sponsored_Projects.csv}{}{
 \item
 \textbf{\Project_Title}
 
@@ -268,7 +267,7 @@ Duration:
 
 \csvreader[
 head to column names
-]{csv_output/PhD_Guidance.csv}{}{
+]{PhD_Guidance.csv}{}{
 \item
 \Student_Name:
 \Topic
@@ -287,7 +286,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/MTech_Guidance.csv}{}{
+]{MTech_Guidance.csv}{}{
 \item
 \Student_Name:
 \Topic
@@ -306,7 +305,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/BTech_Guidance.csv}{}{
+]{BTech_Guidance.csv}{}{
 \item
 \Student_Name:
 \Topic
@@ -325,7 +324,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Courses_Taught.csv}{}{
+]{Courses_Taught.csv}{}{
 \item
 \Course_Code:
 \Course_Name
@@ -344,7 +343,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Administrative_Responsibilities.csv}{}{
+]{Administrative_Responsibilities.csv}{}{
 \item
 \Responsibility
 (\From\ -- \To)
@@ -362,7 +361,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Awards_Honours.csv}{}{
+]{Awards_Honours.csv}{}{
 \item
 \Award\ (\Year)
 
@@ -381,7 +380,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Memberships.csv}{}{
+]{Memberships.csv}{}{
 \item
 \Organization:
 \Membership_Type
@@ -399,7 +398,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Workshops_FDPs.csv}{}{
+]{Workshops_FDPs.csv}{}{
 \item
 \Title
 
@@ -419,7 +418,7 @@ head to column names
 
 \csvreader[
 head to column names
-]{csv_output/Patents.csv}{}{
+]{Patents.csv}{}{
 \item
 \Title
 
@@ -442,7 +441,7 @@ Status:
 
 \csvreader[
 head to column names
-]{csv_output/Consultancy.csv}{}{
+]{Consultancy.csv}{}{
 \item
 \Project
 
