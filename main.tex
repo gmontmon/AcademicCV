@@ -1,0 +1,462 @@
+% ==========================================================
+% OVERLEAF LATEX TEMPLATE
+% Reads CSV files directly
+% ==========================================================
+%
+% REQUIRED CSV FILES:
+%
+% csv_output/
+% ├── Personal_Info.csv
+% ├── Education.csv
+% ├── Experience.csv
+% ├── Journal_Publications.csv
+% ├── Conference_Publications.csv
+% ├── Sponsored_Projects.csv
+% ├── PhD_Guidance.csv
+% ├── MTech_Guidance.csv
+% ├── BTech_Guidance.csv
+% ├── Awards_Honours.csv
+% └── ...
+%
+% ==========================================================
+%
+% UPLOAD TO OVERLEAF:
+%
+% 1. This .tex file
+% 2. Entire csv_output folder
+%
+% ==========================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ==========================================================
+% PACKAGES
+% ==========================================================
+
+\usepackage[a4paper,margin=1in]{geometry}
+
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\definecolor{myblue}{RGB}{0,70,140}
+
+\setlength{\parindent}{0pt}
+
+% ==========================================================
+% DOCUMENT
+% ==========================================================
+
+\begin{document}
+
+% ==========================================================
+% HEADER
+% ==========================================================
+
+\begin{center}
+
+{\Huge \textbf{
+\csvreader[
+head to column names
+]{csv_output/Personal_Info.csv}{}{
+\ifthenelse{\equal{\Field}{Full_Name}}
+{\Value}
+{}
+}
+}}
+
+\vspace{0.3cm}
+
+{\large
+\csvreader[
+head to column names
+]{csv_output/Personal_Info.csv}{}{
+\ifthenelse{\equal{\Field}{Designation}}
+{\Value}
+{}
+}
+}
+
+\vspace{0.2cm}
+
+\csvreader[
+head to column names
+]{csv_output/Personal_Info.csv}{}{
+\ifthenelse{\equal{\Field}{Department}}
+{\Value}
+{}
+}
+
+\csvreader[
+head to column names
+]{csv_output/Personal_Info.csv}{}{
+\ifthenelse{\equal{\Field}{Institution}}
+{\Value}
+{}
+}
+
+\vspace{0.2cm}
+
+Email:
+\csvreader[
+head to column names
+]{csv_output/Personal_Info.csv}{}{
+\ifthenelse{\equal{\Field}{Email}}
+{\Value}
+{}
+}
+
+\hspace{1cm}
+
+Phone:
+\csvreader[
+head to column names
+]{csv_output/Personal_Info.csv}{}{
+\ifthenelse{\equal{\Field}{Phone}}
+{\Value}
+{}
+}
+
+\end{center}
+
+\vspace{0.5cm}
+
+% ==========================================================
+% RESEARCH AREAS
+% ==========================================================
+
+\section*{\color{myblue}Research Areas}
+
+\csvreader[
+head to column names
+]{csv_output/Personal_Info.csv}{}{
+\ifthenelse{\equal{\Field}{Research_Areas}}
+{\Value}
+{}
+}
+
+% ==========================================================
+% EDUCATION
+% ==========================================================
+
+\section*{\color{myblue}Education}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Education.csv}{}{
+\item
+\textbf{\Degree}
+in \Specialization
+
+\Institution,
+\University
+(\Year)
+}
+
+\end{itemize}
+
+% ==========================================================
+% EXPERIENCE
+% ==========================================================
+
+\section*{\color{myblue}Professional Experience}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Experience.csv}{}{
+\item
+\textbf{\Position}
+
+\Institution
+
+\From\ -- \To
+}
+
+\end{itemize}
+
+% ==========================================================
+% JOURNAL PUBLICATIONS
+% ==========================================================
+
+\section*{\color{myblue}Journal Publications}
+
+\begin{enumerate}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Journal_Publications.csv}{}{
+\item
+\Authors\ (\Year).
+
+``\Title''
+
+\textit{\Journal}
+
+Vol. \Volume,
+Issue \Issue,
+pp. \Pages
+}
+
+\end{enumerate}
+
+% ==========================================================
+% CONFERENCE PUBLICATIONS
+% ==========================================================
+
+\section*{\color{myblue}Conference Publications}
+
+\begin{enumerate}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Conference_Publications.csv}{}{
+\item
+\Authors\ (\Year).
+
+``\Title''
+
+\textit{\Conference}
+
+\Location
+}
+
+\end{enumerate}
+
+% ==========================================================
+% SPONSORED PROJECTS
+% ==========================================================
+
+\section*{\color{myblue}Sponsored Projects}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Sponsored_Projects.csv}{}{
+\item
+\textbf{\Project_Title}
+
+Funding Agency:
+\Funding_Agency
+
+Role:
+\Role
+
+Amount:
+\Amount
+
+Duration:
+\Duration
+}
+
+\end{itemize}
+
+% ==========================================================
+% PHD GUIDANCE
+% ==========================================================
+
+\section*{\color{myblue}PhD Guidance}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/PhD_Guidance.csv}{}{
+\item
+\Student_Name:
+\Topic
+(\Status)
+}
+
+\end{itemize}
+
+% ==========================================================
+% MTECH GUIDANCE
+% ==========================================================
+
+\section*{\color{myblue}MTech Guidance}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/MTech_Guidance.csv}{}{
+\item
+\Student_Name:
+\Topic
+(\Year)
+}
+
+\end{itemize}
+
+% ==========================================================
+% BTECH GUIDANCE
+% ==========================================================
+
+\section*{\color{myblue}BTech Guidance}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/BTech_Guidance.csv}{}{
+\item
+\Student_Name:
+\Topic
+(\Year)
+}
+
+\end{itemize}
+
+% ==========================================================
+% COURSES TAUGHT
+% ==========================================================
+
+\section*{\color{myblue}Courses Taught}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Courses_Taught.csv}{}{
+\item
+\Course_Code:
+\Course_Name
+(\Program)
+}
+
+\end{itemize}
+
+% ==========================================================
+% ADMINISTRATIVE RESPONSIBILITIES
+% ==========================================================
+
+\section*{\color{myblue}Administrative Responsibilities}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Administrative_Responsibilities.csv}{}{
+\item
+\Responsibility
+(\From\ -- \To)
+}
+
+\end{itemize}
+
+% ==========================================================
+% AWARDS
+% ==========================================================
+
+\section*{\color{myblue}Awards and Honours}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Awards_Honours.csv}{}{
+\item
+\Award\ (\Year)
+
+\Organization
+}
+
+\end{itemize}
+
+% ==========================================================
+% MEMBERSHIPS
+% ==========================================================
+
+\section*{\color{myblue}Professional Memberships}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Memberships.csv}{}{
+\item
+\Organization:
+\Membership_Type
+}
+
+\end{itemize}
+
+% ==========================================================
+% WORKSHOPS
+% ==========================================================
+
+\section*{\color{myblue}Workshops and FDPs}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Workshops_FDPs.csv}{}{
+\item
+\Title
+
+\Organizer
+(\Year)
+}
+
+\end{itemize}
+
+% ==========================================================
+% PATENTS
+% ==========================================================
+
+\section*{\color{myblue}Patents}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Patents.csv}{}{
+\item
+\Title
+
+Patent No:
+\Patent_No
+
+Status:
+\Status
+}
+
+\end{itemize}
+
+% ==========================================================
+% CONSULTANCY
+% ==========================================================
+
+\section*{\color{myblue}Consultancy Projects}
+
+\begin{itemize}[leftmargin=*]
+
+\csvreader[
+head to column names
+]{csv_output/Consultancy.csv}{}{
+\item
+\Project
+
+Client:
+\Client
+
+Amount:
+\Amount
+}
+
+\end{itemize}
+
+% ==========================================================
+% END
+% ==========================================================
+
+\end{document}
