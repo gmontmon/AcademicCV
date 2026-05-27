@@ -41,6 +41,14 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{ifthen}
+
 \definecolor{myblue}{RGB}{0,70,140}
 
 \setlength{\parindent}{0pt}
@@ -137,48 +145,48 @@ head to column names
 {}
 }
 
-% ==========================================================
-% EDUCATION
-% ==========================================================
+% % ==========================================================
+% % EDUCATION
+% % ==========================================================
 
-\section*{\color{myblue}Education}
+% \section*{\color{myblue}Education}
 
-\begin{itemize}[leftmargin=*]
+% \begin{itemize}[leftmargin=*]
 
-\csvreader[
-head to column names
-]{Education.csv}{}{
-\item
-\textbf{\Degree}
-in \Specialization
+% \csvreader[
+% head to column names
+% ]{Education.csv}{}{
+% \item
+% \textbf{\Degree}
+% in \Specialization
 
-\Institution,
-\University
-(\Year)
-}
+% \Institution,
+% \University
+% (\Year)
+% }
 
-\end{itemize}
+% \end{itemize}
 
-% ==========================================================
-% EXPERIENCE
-% ==========================================================
+% % ==========================================================
+% % EXPERIENCE
+% % ==========================================================
 
-\section*{\color{myblue}Professional Experience}
+% \section*{\color{myblue}Professional Experience}
 
-\begin{itemize}[leftmargin=*]
+% \begin{itemize}[leftmargin=*]
 
-\csvreader[
-head to column names
-]{Experience.csv}{}{
-\item
-\textbf{\Position}
+% \csvreader[
+% head to column names
+% ]{Experience.csv}{}{
+% \item
+% \textbf{\Position}
 
-\Institution
+% \Institution
 
-\From\ -- \To
-}
+% \From\ -- \To
+% }
 
-\end{itemize}
+% \end{itemize}
 
 % ==========================================================
 % JOURNAL PUBLICATIONS
@@ -189,11 +197,22 @@ head to column names
 \begin{enumerate}[leftmargin=*]
 
 \csvreader[
-head to column names
+head to column names,
+column names={
+Authors=\Authors,
+Title=\Title,
+Journal=\Journal,
+Year=\Year,
+Volume=\Volume,
+Issue=\Issue,
+Pages=\Pages,
+DOI=\DOI,
+SCIScopus=\SCIScopus
+
+}
 ]{Journal_Publications.csv}{}{
 \item
 \Authors\ (\Year).
-
 ``\Title''
 
 \textit{\Journal}
@@ -204,6 +223,28 @@ pp. \Pages
 }
 
 \end{enumerate}
+
+
+% \section*{\color{myblue}Journal Publications}
+
+% \begin{enumerate}[leftmargin=*]
+
+% \csvreader[
+% head to column names
+% ]{Journal_Publications.csv}{}{
+% \item
+% \Authors\ (\Year).
+
+% ``\Title''
+
+% \textit{\Journal}
+
+% Vol. \Volume,
+% Issue \Issue,
+% pp. \Pages
+% }
+
+% \end{enumerate}
 
 % ==========================================================
 % CONFERENCE PUBLICATIONS
